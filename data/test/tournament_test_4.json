@@ -23,7 +23,7 @@
         "black": "Lin, Haopeng",
         "date": "2020-01-20",
         "id": "tournament_test_4_3",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Wang, Xiaosheng",
@@ -37,7 +37,7 @@
         "black": "Wang, Xue",
         "date": "2020-01-20",
         "id": "tournament_test_4_5",
-        "result": 1.0
+        "result": 0.5
       }
     ],
     "tour_2": [
@@ -46,14 +46,14 @@
         "black": "L\u00fc, Huiqian",
         "date": "2020-01-21",
         "id": "tournament_test_4_6",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Wang, Dian",
         "black": "Cheng, Jinghua",
         "date": "2020-01-21",
         "id": "tournament_test_4_7",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Wang, Xiaosheng",

@@ -1,13 +1,32 @@
 """
 Main pipeline script for chess game prediction.
 
-This script orchestrates the entire ML pipeline:
-1. Load and preprocess data
-2. Engineer features
-3. Train model
-4. Evaluate performance
-5. Generate predictions
-6. Update test JSON files
+PIPELINE OVERVIEW:
+This script orchestrates the complete end-to-end ML workflow for predicting
+chess game outcomes (Black wins / Draw / White wins).
+
+EXECUTION STEPS:
+1. Load and preprocess tournament data from JSON files
+2. Engineer features (Phase 1 baseline + Phase 2 ELO/performance features)
+3. Train LightGBM multiclass classifier
+4. Evaluate model performance on validation set
+5. Generate predictions for test tournaments
+6. Update test JSON files with predicted results
+
+PHASE 1 (Baseline Model):
+- Basic features: time_control, tours, round_index, player names
+- Simple label encoding for categorical variables
+- Achieved ~46-47% validation accuracy
+
+PHASE 2 (Enhanced Features - Current):
+- Added ELO rating features (white_elo, black_elo, elo_diff, elo_avg)
+- Added performance tracking (prev_performance, perf_diff for both players)
+- Improved feature importance insights
+- Achieved ~50% validation accuracy
+
+MODEL: LightGBM (Gradient Boosting Decision Trees)
+TASK: 3-class classification (0.0=Black wins, 0.5=Draw, 1.0=White wins)
+VALIDATION: Time-based 80/20 split (prevents data leakage)
 """
 
 import sys
@@ -19,10 +38,10 @@ from pathlib import Path
 # Add src to path
 sys.path.append(str(Path(__file__).parent / 'src'))
 
-from features import load_tournament_data, encode_features, prepare_labels
-from train import train_model, evaluate_model
-from predict import make_predictions
-from update_test_jsons import update_test_jsons
+from src.features import load_tournament_data, encode_features, prepare_labels
+from src.train import train_model, evaluate_model
+from src.predict import make_predictions
+from src.update_test_jsons import update_test_jsons
 
 
 RANDOM_SEED = 42

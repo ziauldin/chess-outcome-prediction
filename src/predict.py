@@ -105,6 +105,18 @@ def make_predictions(test_data_dir, model_path, metadata_path):
     X_test['tours'] = df_test['tours'].values
     X_test['round_index'] = df_test['round_index'].values
     
+    # ELO rating features
+    X_test['white_elo'] = df_test['white_elo'].values
+    X_test['black_elo'] = df_test['black_elo'].values
+    X_test['elo_diff'] = df_test['elo_diff'].values
+    X_test['elo_avg'] = df_test['elo_avg'].values
+    
+    # Performance features
+    X_test['white_prev_performance'] = df_test['white_prev_performance'].values
+    X_test['black_prev_performance'] = df_test['black_prev_performance'].values
+    X_test['white_perf_diff'] = df_test['white_perf_diff'].values
+    X_test['black_perf_diff'] = df_test['black_perf_diff'].values
+    
     # Encoded player names
     X_test['white_encoded'] = encoders['white'].transform(df_test['white'])
     X_test['black_encoded'] = encoders['black'].transform(df_test['black'])
