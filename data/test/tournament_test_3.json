@@ -1,0 +1,379 @@
+{
+  "name": "tournament_test_3",
+  "start_date": "2020-01-20",
+  "end_date": "2020-02-09",
+  "games": {
+    "tour_1": [
+      {
+        "white": "Xu Nv ",
+        "black": "Li Mei Lie",
+        "date": "2020-01-20",
+        "id": "tournament_test_3_1",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Cai Wan Xia",
+        "date": "2020-01-20",
+        "id": "tournament_test_3_2",
+        "result": 0.5
+      },
+      {
+        "white": "Fu Jian ",
+        "black": "Shao Fu Ta",
+        "date": "2020-01-20",
+        "id": "tournament_test_3_3",
+        "result": 0.5
+      },
+      {
+        "white": "Li Jun ",
+        "black": "Zhao You Hai",
+        "date": "2020-01-20",
+        "id": "tournament_test_3_4",
+        "result": 0.5
+      },
+      {
+        "white": "Li Qiao Yun",
+        "black": "Li Bei ",
+        "date": "2020-01-20",
+        "id": "tournament_test_3_5",
+        "result": 0.5
+      }
+    ],
+    "tour_2": [
+      {
+        "white": "Xiong Li Lan",
+        "black": "Xu Nv ",
+        "date": "2020-01-22",
+        "id": "tournament_test_3_6",
+        "result": 0.5
+      },
+      {
+        "white": "Fu Jian ",
+        "black": "Li Mei Lie",
+        "date": "2020-01-22",
+        "id": "tournament_test_3_7",
+        "result": 0.5
+      },
+      {
+        "white": "Li Jun ",
+        "black": "Cai Wan Xia",
+        "date": "2020-01-22",
+        "id": "tournament_test_3_8",
+        "result": 0.5
+      },
+      {
+        "white": "Li Qiao Yun",
+        "black": "Shao Fu Ta",
+        "date": "2020-01-22",
+        "id": "tournament_test_3_9",
+        "result": 0.5
+      },
+      {
+        "white": "Li Bei ",
+        "black": "Zhao You Hai",
+        "date": "2020-01-22",
+        "id": "tournament_test_3_10",
+        "result": 0.5
+      }
+    ],
+    "tour_3": [
+      {
+        "white": "Huang Cun Hua",
+        "black": "Xiong Li Lan",
+        "date": "2020-01-24",
+        "id": "tournament_test_3_11",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Fu Jian ",
+        "date": "2020-01-24",
+        "id": "tournament_test_3_12",
+        "result": 0.5
+      },
+      {
+        "white": "Li Qiao Yun",
+        "black": "Li Mei Lie",
+        "date": "2020-01-24",
+        "id": "tournament_test_3_13",
+        "result": 0.5
+      },
+      {
+        "white": "Li Bei ",
+        "black": "Cai Wan Xia",
+        "date": "2020-01-24",
+        "id": "tournament_test_3_14",
+        "result": 0.5
+      },
+      {
+        "white": "Zhao You Hai",
+        "black": "Shao Fu Ta",
+        "date": "2020-01-24",
+        "id": "tournament_test_3_15",
+        "result": 0.5
+      }
+    ],
+    "tour_4": [
+      {
+        "white": "Xiong Li Lan",
+        "black": "Fu Jian ",
+        "date": "2020-01-26",
+        "id": "tournament_test_3_16",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Li Jun ",
+        "date": "2020-01-26",
+        "id": "tournament_test_3_17",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Li Qiao Yun",
+        "date": "2020-01-26",
+        "id": "tournament_test_3_18",
+        "result": 0.5
+      },
+      {
+        "white": "Zhao You Hai",
+        "black": "Li Mei Lie",
+        "date": "2020-01-26",
+        "id": "tournament_test_3_19",
+        "result": 0.5
+      },
+      {
+        "white": "Shao Fu Ta",
+        "black": "Cai Wan Xia",
+        "date": "2020-01-26",
+        "id": "tournament_test_3_20",
+        "result": 0.5
+      }
+    ],
+    "tour_5": [
+      {
+        "white": "Li Jun ",
+        "black": "Xiong Li Lan",
+        "date": "2020-01-28",
+        "id": "tournament_test_3_21",
+        "result": 0.5
+      },
+      {
+        "white": "Fu Jian ",
+        "black": "Li Qiao Yun",
+        "date": "2020-01-28",
+        "id": "tournament_test_3_22",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Li Bei ",
+        "date": "2020-01-28",
+        "id": "tournament_test_3_23",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Zhao You Hai",
+        "date": "2020-01-28",
+        "id": "tournament_test_3_24",
+        "result": 0.5
+      },
+      {
+        "white": "Cai Wan Xia",
+        "black": "Li Mei Lie",
+        "date": "2020-01-28",
+        "id": "tournament_test_3_25",
+        "result": 1.0
+      }
+    ],
+    "tour_6": [
+      {
+        "white": "Xiong Li Lan",
+        "black": "Li Qiao Yun",
+        "date": "2020-01-30",
+        "id": "tournament_test_3_26",
+        "result": 0.5
+      },
+      {
+        "white": "Li Jun ",
+        "black": "Li Bei ",
+        "date": "2020-01-30",
+        "id": "tournament_test_3_27",
+        "result": 0.5
+      },
+      {
+        "white": "Fu Jian ",
+        "black": "Zhao You Hai",
+        "date": "2020-01-30",
+        "id": "tournament_test_3_28",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Shao Fu Ta",
+        "date": "2020-01-30",
+        "id": "tournament_test_3_29",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Cai Wan Xia",
+        "date": "2020-01-30",
+        "id": "tournament_test_3_30",
+        "result": 0.5
+      }
+    ],
+    "tour_7": [
+      {
+        "white": "Li Bei ",
+        "black": "Xiong Li Lan",
+        "date": "2020-02-01",
+        "id": "tournament_test_3_31",
+        "result": 0.5
+      },
+      {
+        "white": "Li Qiao Yun",
+        "black": "Zhao You Hai",
+        "date": "2020-02-01",
+        "id": "tournament_test_3_32",
+        "result": 0.5
+      },
+      {
+        "white": "Li Jun ",
+        "black": "Shao Fu Ta",
+        "date": "2020-02-01",
+        "id": "tournament_test_3_33",
+        "result": 0.5
+      },
+      {
+        "white": "Fu Jian ",
+        "black": "Cai Wan Xia",
+        "date": "2020-02-01",
+        "id": "tournament_test_3_34",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Li Mei Lie",
+        "date": "2020-02-01",
+        "id": "tournament_test_3_35",
+        "result": 0.5
+      }
+    ],
+    "tour_8": [
+      {
+        "white": "Xiong Li Lan",
+        "black": "Zhao You Hai",
+        "date": "2020-02-03",
+        "id": "tournament_test_3_36",
+        "result": 0.5
+      },
+      {
+        "white": "Li Bei ",
+        "black": "Shao Fu Ta",
+        "date": "2020-02-03",
+        "id": "tournament_test_3_37",
+        "result": 0.5
+      },
+      {
+        "white": "Li Qiao Yun",
+        "black": "Cai Wan Xia",
+        "date": "2020-02-03",
+        "id": "tournament_test_3_38",
+        "result": 0.5
+      },
+      {
+        "white": "Li Jun ",
+        "black": "Li Mei Lie",
+        "date": "2020-02-03",
+        "id": "tournament_test_3_39",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Huang Cun Hua",
+        "date": "2020-02-03",
+        "id": "tournament_test_3_40",
+        "result": 0.5
+      }
+    ],
+    "tour_9": [
+      {
+        "white": "Shao Fu Ta",
+        "black": "Xiong Li Lan",
+        "date": "2020-02-05",
+        "id": "tournament_test_3_41",
+        "result": 0.5
+      },
+      {
+        "white": "Zhao You Hai",
+        "black": "Cai Wan Xia",
+        "date": "2020-02-05",
+        "id": "tournament_test_3_42",
+        "result": 0.5
+      },
+      {
+        "white": "Li Bei ",
+        "black": "Li Mei Lie",
+        "date": "2020-02-05",
+        "id": "tournament_test_3_43",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Li Jun ",
+        "date": "2020-02-05",
+        "id": "tournament_test_3_44",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Fu Jian ",
+        "date": "2020-02-05",
+        "id": "tournament_test_3_45",
+        "result": 0.5
+      }
+    ],
+    "tour_10": [
+      {
+        "white": "Xiong Li Lan",
+        "black": "Cai Wan Xia",
+        "date": "2020-02-07",
+        "id": "tournament_test_3_46",
+        "result": 0.5
+      },
+      {
+        "white": "Shao Fu Ta",
+        "black": "Li Mei Lie",
+        "date": "2020-02-07",
+        "id": "tournament_test_3_47",
+        "result": 0.5
+      },
+      {
+        "white": "Xu Nv ",
+        "black": "Li Bei ",
+        "date": "2020-02-07",
+        "id": "tournament_test_3_48",
+        "result": 0.5
+      },
+      {
+        "white": "Huang Cun Hua",
+        "black": "Li Qiao Yun",
+        "date": "2020-02-07",
+        "id": "tournament_test_3_49",
+        "result": 0.5
+      },
+      {
+        "white": "Fu Jian ",
+        "black": "Li Jun ",
+        "date": "2020-02-07",
+        "id": "tournament_test_3_50",
+        "result": 0.5
+      }
+    ]
+  },
+  "tours": 10,
+  "time_control": "classic"
+}

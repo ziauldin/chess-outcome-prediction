@@ -1,0 +1,379 @@
+{
+  "name": "tournament_test_4",
+  "start_date": "2020-01-20",
+  "end_date": "2020-01-30",
+  "games": {
+    "tour_1": [
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-20",
+        "id": "tournament_test_4_1",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-20",
+        "id": "tournament_test_4_2",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Dian",
+        "black": "Lin, Haopeng",
+        "date": "2020-01-20",
+        "id": "tournament_test_4_3",
+        "result": 1.0
+      },
+      {
+        "white": "Wang, Xiaosheng",
+        "black": "Feng, Sanli",
+        "date": "2020-01-20",
+        "id": "tournament_test_4_4",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xian",
+        "black": "Wang, Xue",
+        "date": "2020-01-20",
+        "id": "tournament_test_4_5",
+        "result": 1.0
+      }
+    ],
+    "tour_2": [
+      {
+        "white": "Shen, Jianqin",
+        "black": "L\u00fc, Huiqian",
+        "date": "2020-01-21",
+        "id": "tournament_test_4_6",
+        "result": 1.0
+      },
+      {
+        "white": "Wang, Dian",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-21",
+        "id": "tournament_test_4_7",
+        "result": 1.0
+      },
+      {
+        "white": "Wang, Xiaosheng",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-21",
+        "id": "tournament_test_4_8",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xian",
+        "black": "Lin, Haopeng",
+        "date": "2020-01-21",
+        "id": "tournament_test_4_9",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xue",
+        "black": "Feng, Sanli",
+        "date": "2020-01-21",
+        "id": "tournament_test_4_10",
+        "result": 0.5
+      }
+    ],
+    "tour_3": [
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Shen, Jianqin",
+        "date": "2020-01-22",
+        "id": "tournament_test_4_11",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Wang, Dian",
+        "date": "2020-01-22",
+        "id": "tournament_test_4_12",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xian",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-22",
+        "id": "tournament_test_4_13",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xue",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-22",
+        "id": "tournament_test_4_14",
+        "result": 0.5
+      },
+      {
+        "white": "Feng, Sanli",
+        "black": "Lin, Haopeng",
+        "date": "2020-01-22",
+        "id": "tournament_test_4_15",
+        "result": 0.5
+      }
+    ],
+    "tour_4": [
+      {
+        "white": "Shen, Jianqin",
+        "black": "Wang, Dian",
+        "date": "2020-01-23",
+        "id": "tournament_test_4_16",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Wang, Xiaosheng",
+        "date": "2020-01-23",
+        "id": "tournament_test_4_17",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Liu, Xian",
+        "date": "2020-01-23",
+        "id": "tournament_test_4_18",
+        "result": 0.5
+      },
+      {
+        "white": "Feng, Sanli",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-23",
+        "id": "tournament_test_4_19",
+        "result": 0.5
+      },
+      {
+        "white": "Lin, Haopeng",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-23",
+        "id": "tournament_test_4_20",
+        "result": 0.5
+      }
+    ],
+    "tour_5": [
+      {
+        "white": "Wang, Xiaosheng",
+        "black": "Shen, Jianqin",
+        "date": "2020-01-24",
+        "id": "tournament_test_4_21",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Dian",
+        "black": "Liu, Xian",
+        "date": "2020-01-24",
+        "id": "tournament_test_4_22",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Wang, Xue",
+        "date": "2020-01-24",
+        "id": "tournament_test_4_23",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Feng, Sanli",
+        "date": "2020-01-24",
+        "id": "tournament_test_4_24",
+        "result": 0.5
+      },
+      {
+        "white": "Zhang, Xiaorong",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-24",
+        "id": "tournament_test_4_25",
+        "result": 0.5
+      }
+    ],
+    "tour_6": [
+      {
+        "white": "Shen, Jianqin",
+        "black": "Liu, Xian",
+        "date": "2020-01-25",
+        "id": "tournament_test_4_26",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaosheng",
+        "black": "Wang, Xue",
+        "date": "2020-01-25",
+        "id": "tournament_test_4_27",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Dian",
+        "black": "Feng, Sanli",
+        "date": "2020-01-25",
+        "id": "tournament_test_4_28",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Lin, Haopeng",
+        "date": "2020-01-25",
+        "id": "tournament_test_4_29",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-25",
+        "id": "tournament_test_4_30",
+        "result": 0.5
+      }
+    ],
+    "tour_7": [
+      {
+        "white": "Wang, Xue",
+        "black": "Shen, Jianqin",
+        "date": "2020-01-26",
+        "id": "tournament_test_4_31",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xian",
+        "black": "Feng, Sanli",
+        "date": "2020-01-26",
+        "id": "tournament_test_4_32",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaosheng",
+        "black": "Lin, Haopeng",
+        "date": "2020-01-26",
+        "id": "tournament_test_4_33",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Dian",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-26",
+        "id": "tournament_test_4_34",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-26",
+        "id": "tournament_test_4_35",
+        "result": 0.5
+      }
+    ],
+    "tour_8": [
+      {
+        "white": "Shen, Jianqin",
+        "black": "Feng, Sanli",
+        "date": "2020-01-27",
+        "id": "tournament_test_4_36",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xue",
+        "black": "Lin, Haopeng",
+        "date": "2020-01-27",
+        "id": "tournament_test_4_37",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xian",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-27",
+        "id": "tournament_test_4_38",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaosheng",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-27",
+        "id": "tournament_test_4_39",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Liu, Xiaopeng",
+        "date": "2020-01-27",
+        "id": "tournament_test_4_40",
+        "result": 0.5
+      }
+    ],
+    "tour_9": [
+      {
+        "white": "Lin, Haopeng",
+        "black": "Shen, Jianqin",
+        "date": "2020-01-28",
+        "id": "tournament_test_4_41",
+        "result": 0.5
+      },
+      {
+        "white": "Feng, Sanli",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-28",
+        "id": "tournament_test_4_42",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xue",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-28",
+        "id": "tournament_test_4_43",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Wang, Xiaosheng",
+        "date": "2020-01-28",
+        "id": "tournament_test_4_44",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Wang, Dian",
+        "date": "2020-01-28",
+        "id": "tournament_test_4_45",
+        "result": 0.5
+      }
+    ],
+    "tour_10": [
+      {
+        "white": "Shen, Jianqin",
+        "black": "Zhang, Xiaorong",
+        "date": "2020-01-29",
+        "id": "tournament_test_4_46",
+        "result": 0.5
+      },
+      {
+        "white": "Lin, Haopeng",
+        "black": "Cheng, Jinghua",
+        "date": "2020-01-29",
+        "id": "tournament_test_4_47",
+        "result": 0.5
+      },
+      {
+        "white": "L\u00fc, Huiqian",
+        "black": "Wang, Xue",
+        "date": "2020-01-29",
+        "id": "tournament_test_4_48",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Xiaopeng",
+        "black": "Liu, Xian",
+        "date": "2020-01-29",
+        "id": "tournament_test_4_49",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Dian",
+        "black": "Wang, Xiaosheng",
+        "date": "2020-01-29",
+        "id": "tournament_test_4_50",
+        "result": 0.5
+      }
+    ]
+  },
+  "tours": 10,
+  "time_control": "classic"
+}

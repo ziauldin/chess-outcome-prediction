@@ -1,0 +1,379 @@
+{
+  "name": "tournament_test_1",
+  "start_date": "2020-01-20",
+  "end_date": "2020-01-30",
+  "games": {
+    "tour_1": [
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Zhang, Yan",
+        "date": "2020-01-20",
+        "id": "tournament_test_1_1",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-20",
+        "id": "tournament_test_1_2",
+        "result": 1.0
+      },
+      {
+        "white": "Wang, Xiaochuan",
+        "black": "Liu, Liming",
+        "date": "2020-01-20",
+        "id": "tournament_test_1_3",
+        "result": 0.5
+      },
+      {
+        "white": "Jiang, Bo",
+        "black": "Chen, Jining",
+        "date": "2020-01-20",
+        "id": "tournament_test_1_4",
+        "result": 0.5
+      },
+      {
+        "white": "Wu, Yishun",
+        "black": "Lu, Yingfu",
+        "date": "2020-01-20",
+        "id": "tournament_test_1_5",
+        "result": 0.5
+      }
+    ],
+    "tour_2": [
+      {
+        "white": "Liu, Aigui",
+        "black": "Liu, N\u00fcmin",
+        "date": "2020-01-21",
+        "id": "tournament_test_1_6",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaochuan",
+        "black": "Zhang, Yan",
+        "date": "2020-01-21",
+        "id": "tournament_test_1_7",
+        "result": 0.5
+      },
+      {
+        "white": "Jiang, Bo",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-21",
+        "id": "tournament_test_1_8",
+        "result": 0.5
+      },
+      {
+        "white": "Wu, Yishun",
+        "black": "Liu, Liming",
+        "date": "2020-01-21",
+        "id": "tournament_test_1_9",
+        "result": 0.5
+      },
+      {
+        "white": "Lu, Yingfu",
+        "black": "Chen, Jining",
+        "date": "2020-01-21",
+        "id": "tournament_test_1_10",
+        "result": 0.5
+      }
+    ],
+    "tour_3": [
+      {
+        "white": "Wang, Jianyao",
+        "black": "Liu, Aigui",
+        "date": "2020-01-22",
+        "id": "tournament_test_1_11",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Wang, Xiaochuan",
+        "date": "2020-01-22",
+        "id": "tournament_test_1_12",
+        "result": 0.5
+      },
+      {
+        "white": "Wu, Yishun",
+        "black": "Zhang, Yan",
+        "date": "2020-01-22",
+        "id": "tournament_test_1_13",
+        "result": 0.5
+      },
+      {
+        "white": "Lu, Yingfu",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-22",
+        "id": "tournament_test_1_14",
+        "result": 0.5
+      },
+      {
+        "white": "Chen, Jining",
+        "black": "Liu, Liming",
+        "date": "2020-01-22",
+        "id": "tournament_test_1_15",
+        "result": 0.5
+      }
+    ],
+    "tour_4": [
+      {
+        "white": "Liu, Aigui",
+        "black": "Wang, Xiaochuan",
+        "date": "2020-01-23",
+        "id": "tournament_test_1_16",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Jiang, Bo",
+        "date": "2020-01-23",
+        "id": "tournament_test_1_17",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Wu, Yishun",
+        "date": "2020-01-23",
+        "id": "tournament_test_1_18",
+        "result": 0.5
+      },
+      {
+        "white": "Chen, Jining",
+        "black": "Zhang, Yan",
+        "date": "2020-01-23",
+        "id": "tournament_test_1_19",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Liming",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-23",
+        "id": "tournament_test_1_20",
+        "result": 0.5
+      }
+    ],
+    "tour_5": [
+      {
+        "white": "Jiang, Bo",
+        "black": "Liu, Aigui",
+        "date": "2020-01-24",
+        "id": "tournament_test_1_21",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaochuan",
+        "black": "Wu, Yishun",
+        "date": "2020-01-24",
+        "id": "tournament_test_1_22",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Lu, Yingfu",
+        "date": "2020-01-24",
+        "id": "tournament_test_1_23",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Chen, Jining",
+        "date": "2020-01-24",
+        "id": "tournament_test_1_24",
+        "result": 0.5
+      },
+      {
+        "white": "Liang, Meiqiang",
+        "black": "Zhang, Yan",
+        "date": "2020-01-24",
+        "id": "tournament_test_1_25",
+        "result": 0.5
+      }
+    ],
+    "tour_6": [
+      {
+        "white": "Liu, Aigui",
+        "black": "Wu, Yishun",
+        "date": "2020-01-25",
+        "id": "tournament_test_1_26",
+        "result": 0.5
+      },
+      {
+        "white": "Jiang, Bo",
+        "black": "Lu, Yingfu",
+        "date": "2020-01-25",
+        "id": "tournament_test_1_27",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaochuan",
+        "black": "Chen, Jining",
+        "date": "2020-01-25",
+        "id": "tournament_test_1_28",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Liu, Liming",
+        "date": "2020-01-25",
+        "id": "tournament_test_1_29",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-25",
+        "id": "tournament_test_1_30",
+        "result": 0.5
+      }
+    ],
+    "tour_7": [
+      {
+        "white": "Lu, Yingfu",
+        "black": "Liu, Aigui",
+        "date": "2020-01-26",
+        "id": "tournament_test_1_31",
+        "result": 0.5
+      },
+      {
+        "white": "Wu, Yishun",
+        "black": "Chen, Jining",
+        "date": "2020-01-26",
+        "id": "tournament_test_1_32",
+        "result": 0.5
+      },
+      {
+        "white": "Jiang, Bo",
+        "black": "Liu, Liming",
+        "date": "2020-01-26",
+        "id": "tournament_test_1_33",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaochuan",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-26",
+        "id": "tournament_test_1_34",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Zhang, Yan",
+        "date": "2020-01-26",
+        "id": "tournament_test_1_35",
+        "result": 0.5
+      }
+    ],
+    "tour_8": [
+      {
+        "white": "Liu, Aigui",
+        "black": "Chen, Jining",
+        "date": "2020-01-27",
+        "id": "tournament_test_1_36",
+        "result": 0.5
+      },
+      {
+        "white": "Lu, Yingfu",
+        "black": "Liu, Liming",
+        "date": "2020-01-27",
+        "id": "tournament_test_1_37",
+        "result": 0.5
+      },
+      {
+        "white": "Wu, Yishun",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-27",
+        "id": "tournament_test_1_38",
+        "result": 0.5
+      },
+      {
+        "white": "Jiang, Bo",
+        "black": "Zhang, Yan",
+        "date": "2020-01-27",
+        "id": "tournament_test_1_39",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Wang, Jianyao",
+        "date": "2020-01-27",
+        "id": "tournament_test_1_40",
+        "result": 0.5
+      }
+    ],
+    "tour_9": [
+      {
+        "white": "Liu, Liming",
+        "black": "Liu, Aigui",
+        "date": "2020-01-28",
+        "id": "tournament_test_1_41",
+        "result": 0.5
+      },
+      {
+        "white": "Chen, Jining",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-28",
+        "id": "tournament_test_1_42",
+        "result": 0.5
+      },
+      {
+        "white": "Lu, Yingfu",
+        "black": "Zhang, Yan",
+        "date": "2020-01-28",
+        "id": "tournament_test_1_43",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Jiang, Bo",
+        "date": "2020-01-28",
+        "id": "tournament_test_1_44",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Wang, Xiaochuan",
+        "date": "2020-01-28",
+        "id": "tournament_test_1_45",
+        "result": 0.5
+      }
+    ],
+    "tour_10": [
+      {
+        "white": "Liu, Aigui",
+        "black": "Liang, Meiqiang",
+        "date": "2020-01-29",
+        "id": "tournament_test_1_46",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, Liming",
+        "black": "Zhang, Yan",
+        "date": "2020-01-29",
+        "id": "tournament_test_1_47",
+        "result": 0.5
+      },
+      {
+        "white": "Liu, N\u00fcmin",
+        "black": "Lu, Yingfu",
+        "date": "2020-01-29",
+        "id": "tournament_test_1_48",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Jianyao",
+        "black": "Wu, Yishun",
+        "date": "2020-01-29",
+        "id": "tournament_test_1_49",
+        "result": 0.5
+      },
+      {
+        "white": "Wang, Xiaochuan",
+        "black": "Jiang, Bo",
+        "date": "2020-01-29",
+        "id": "tournament_test_1_50",
+        "result": 0.5
+      }
+    ]
+  },
+  "tours": 10,
+  "time_control": "classic"
+}

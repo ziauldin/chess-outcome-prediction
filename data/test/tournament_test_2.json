@@ -1,0 +1,379 @@
+{
+  "name": "tournament_test_2",
+  "start_date": "2020-01-20",
+  "end_date": "2020-02-09",
+  "games": {
+    "tour_1": [
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-01-20",
+        "id": "tournament_test_2_1",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u9648\u68ee",
+        "date": "2020-01-20",
+        "id": "tournament_test_2_2",
+        "result": 0.5
+      },
+      {
+        "white": "\u4e01\u6668\u5f64",
+        "black": "\u8463\u6d77\u975e",
+        "date": "2020-01-20",
+        "id": "tournament_test_2_3",
+        "result": 0.5
+      },
+      {
+        "white": "\u5085\u661f\u83f2",
+        "black": "\u5f20\u6625",
+        "date": "2020-01-20",
+        "id": "tournament_test_2_4",
+        "result": 0.5
+      },
+      {
+        "white": "\u9b4f\u8f9f\u6d9b",
+        "black": "\u9ec4\u51ef\u6587",
+        "date": "2020-01-20",
+        "id": "tournament_test_2_5",
+        "result": 0.5
+      }
+    ],
+    "tour_2": [
+      {
+        "white": "\u9648\u8363\u987a",
+        "black": "\u5415\u4e9a\u5149",
+        "date": "2020-01-22",
+        "id": "tournament_test_2_6",
+        "result": 1.0
+      },
+      {
+        "white": "\u4e01\u6668\u5f64",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-01-22",
+        "id": "tournament_test_2_7",
+        "result": 0.5
+      },
+      {
+        "white": "\u5085\u661f\u83f2",
+        "black": "\u9648\u68ee",
+        "date": "2020-01-22",
+        "id": "tournament_test_2_8",
+        "result": 0.5
+      },
+      {
+        "white": "\u9b4f\u8f9f\u6d9b",
+        "black": "\u8463\u6d77\u975e",
+        "date": "2020-01-22",
+        "id": "tournament_test_2_9",
+        "result": 0.5
+      },
+      {
+        "white": "\u9ec4\u51ef\u6587",
+        "black": "\u5f20\u6625",
+        "date": "2020-01-22",
+        "id": "tournament_test_2_10",
+        "result": 0.5
+      }
+    ],
+    "tour_3": [
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u9648\u8363\u987a",
+        "date": "2020-01-24",
+        "id": "tournament_test_2_11",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u4e01\u6668\u5f64",
+        "date": "2020-01-24",
+        "id": "tournament_test_2_12",
+        "result": 0.5
+      },
+      {
+        "white": "\u9b4f\u8f9f\u6d9b",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-01-24",
+        "id": "tournament_test_2_13",
+        "result": 0.5
+      },
+      {
+        "white": "\u9ec4\u51ef\u6587",
+        "black": "\u9648\u68ee",
+        "date": "2020-01-24",
+        "id": "tournament_test_2_14",
+        "result": 1.0
+      },
+      {
+        "white": "\u5f20\u6625",
+        "black": "\u8463\u6d77\u975e",
+        "date": "2020-01-24",
+        "id": "tournament_test_2_15",
+        "result": 0.5
+      }
+    ],
+    "tour_4": [
+      {
+        "white": "\u9648\u8363\u987a",
+        "black": "\u4e01\u6668\u5f64",
+        "date": "2020-01-26",
+        "id": "tournament_test_2_16",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u5085\u661f\u83f2",
+        "date": "2020-01-26",
+        "id": "tournament_test_2_17",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u9b4f\u8f9f\u6d9b",
+        "date": "2020-01-26",
+        "id": "tournament_test_2_18",
+        "result": 0.5
+      },
+      {
+        "white": "\u5f20\u6625",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-01-26",
+        "id": "tournament_test_2_19",
+        "result": 0.5
+      },
+      {
+        "white": "\u8463\u6d77\u975e",
+        "black": "\u9648\u68ee",
+        "date": "2020-01-26",
+        "id": "tournament_test_2_20",
+        "result": 0.5
+      }
+    ],
+    "tour_5": [
+      {
+        "white": "\u5085\u661f\u83f2",
+        "black": "\u9648\u8363\u987a",
+        "date": "2020-01-28",
+        "id": "tournament_test_2_21",
+        "result": 0.5
+      },
+      {
+        "white": "\u4e01\u6668\u5f64",
+        "black": "\u9b4f\u8f9f\u6d9b",
+        "date": "2020-01-28",
+        "id": "tournament_test_2_22",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u9ec4\u51ef\u6587",
+        "date": "2020-01-28",
+        "id": "tournament_test_2_23",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u5f20\u6625",
+        "date": "2020-01-28",
+        "id": "tournament_test_2_24",
+        "result": 0.5
+      },
+      {
+        "white": "\u9648\u68ee",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-01-28",
+        "id": "tournament_test_2_25",
+        "result": 0.5
+      }
+    ],
+    "tour_6": [
+      {
+        "white": "\u9648\u8363\u987a",
+        "black": "\u9b4f\u8f9f\u6d9b",
+        "date": "2020-01-30",
+        "id": "tournament_test_2_26",
+        "result": 0.5
+      },
+      {
+        "white": "\u5085\u661f\u83f2",
+        "black": "\u9ec4\u51ef\u6587",
+        "date": "2020-01-30",
+        "id": "tournament_test_2_27",
+        "result": 0.5
+      },
+      {
+        "white": "\u4e01\u6668\u5f64",
+        "black": "\u5f20\u6625",
+        "date": "2020-01-30",
+        "id": "tournament_test_2_28",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u8463\u6d77\u975e",
+        "date": "2020-01-30",
+        "id": "tournament_test_2_29",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u9648\u68ee",
+        "date": "2020-01-30",
+        "id": "tournament_test_2_30",
+        "result": 0.5
+      }
+    ],
+    "tour_7": [
+      {
+        "white": "\u9ec4\u51ef\u6587",
+        "black": "\u9648\u8363\u987a",
+        "date": "2020-02-01",
+        "id": "tournament_test_2_31",
+        "result": 0.5
+      },
+      {
+        "white": "\u9b4f\u8f9f\u6d9b",
+        "black": "\u5f20\u6625",
+        "date": "2020-02-01",
+        "id": "tournament_test_2_32",
+        "result": 0.5
+      },
+      {
+        "white": "\u5085\u661f\u83f2",
+        "black": "\u8463\u6d77\u975e",
+        "date": "2020-02-01",
+        "id": "tournament_test_2_33",
+        "result": 0.5
+      },
+      {
+        "white": "\u4e01\u6668\u5f64",
+        "black": "\u9648\u68ee",
+        "date": "2020-02-01",
+        "id": "tournament_test_2_34",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-02-01",
+        "id": "tournament_test_2_35",
+        "result": 0.5
+      }
+    ],
+    "tour_8": [
+      {
+        "white": "\u9648\u8363\u987a",
+        "black": "\u5f20\u6625",
+        "date": "2020-02-03",
+        "id": "tournament_test_2_36",
+        "result": 0.5
+      },
+      {
+        "white": "\u9ec4\u51ef\u6587",
+        "black": "\u8463\u6d77\u975e",
+        "date": "2020-02-03",
+        "id": "tournament_test_2_37",
+        "result": 0.5
+      },
+      {
+        "white": "\u9b4f\u8f9f\u6d9b",
+        "black": "\u9648\u68ee",
+        "date": "2020-02-03",
+        "id": "tournament_test_2_38",
+        "result": 0.5
+      },
+      {
+        "white": "\u5085\u661f\u83f2",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-02-03",
+        "id": "tournament_test_2_39",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u5d14\u519b\u51ef",
+        "date": "2020-02-03",
+        "id": "tournament_test_2_40",
+        "result": 0.5
+      }
+    ],
+    "tour_9": [
+      {
+        "white": "\u8463\u6d77\u975e",
+        "black": "\u9648\u8363\u987a",
+        "date": "2020-02-05",
+        "id": "tournament_test_2_41",
+        "result": 0.5
+      },
+      {
+        "white": "\u5f20\u6625",
+        "black": "\u9648\u68ee",
+        "date": "2020-02-05",
+        "id": "tournament_test_2_42",
+        "result": 0.5
+      },
+      {
+        "white": "\u9ec4\u51ef\u6587",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-02-05",
+        "id": "tournament_test_2_43",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u5085\u661f\u83f2",
+        "date": "2020-02-05",
+        "id": "tournament_test_2_44",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u4e01\u6668\u5f64",
+        "date": "2020-02-05",
+        "id": "tournament_test_2_45",
+        "result": 0.5
+      }
+    ],
+    "tour_10": [
+      {
+        "white": "\u9648\u8363\u987a",
+        "black": "\u9648\u68ee",
+        "date": "2020-02-07",
+        "id": "tournament_test_2_46",
+        "result": 0.5
+      },
+      {
+        "white": "\u8463\u6d77\u975e",
+        "black": "\u80e1\u5efa\u9759",
+        "date": "2020-02-07",
+        "id": "tournament_test_2_47",
+        "result": 0.5
+      },
+      {
+        "white": "\u5415\u4e9a\u5149",
+        "black": "\u9ec4\u51ef\u6587",
+        "date": "2020-02-07",
+        "id": "tournament_test_2_48",
+        "result": 0.5
+      },
+      {
+        "white": "\u5d14\u519b\u51ef",
+        "black": "\u9b4f\u8f9f\u6d9b",
+        "date": "2020-02-07",
+        "id": "tournament_test_2_49",
+        "result": 0.5
+      },
+      {
+        "white": "\u4e01\u6668\u5f64",
+        "black": "\u5085\u661f\u83f2",
+        "date": "2020-02-07",
+        "id": "tournament_test_2_50",
+        "result": 0.5
+      }
+    ]
+  },
+  "tours": 10,
+  "time_control": "classic"
+}
