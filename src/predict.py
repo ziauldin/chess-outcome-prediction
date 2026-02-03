@@ -105,17 +105,30 @@ def make_predictions(test_data_dir, model_path, metadata_path):
     X_test['tours'] = df_test['tours'].values
     X_test['round_index'] = df_test['round_index'].values
     
-    # ELO rating features
+    # ELO rating features (Phase 2)
     X_test['white_elo'] = df_test['white_elo'].values
     X_test['black_elo'] = df_test['black_elo'].values
     X_test['elo_diff'] = df_test['elo_diff'].values
     X_test['elo_avg'] = df_test['elo_avg'].values
     
-    # Performance features
+    # Performance features (Phase 2)
     X_test['white_prev_performance'] = df_test['white_prev_performance'].values
     X_test['black_prev_performance'] = df_test['black_prev_performance'].values
     X_test['white_perf_diff'] = df_test['white_perf_diff'].values
     X_test['black_perf_diff'] = df_test['black_perf_diff'].values
+    
+    # Head-to-head features (Phase 3)
+    X_test['h2h_games_played'] = df_test['h2h_games_played'].values
+    X_test['h2h_white_win_rate'] = df_test['h2h_white_win_rate'].values
+    X_test['h2h_last_result'] = df_test['h2h_last_result'].values
+    
+    # Recent form features (Phase 3)
+    X_test['white_form_last5'] = df_test['white_form_last5'].values
+    X_test['black_form_last5'] = df_test['black_form_last5'].values
+    X_test['white_form_last10'] = df_test['white_form_last10'].values
+    X_test['black_form_last10'] = df_test['black_form_last10'].values
+    X_test['white_win_streak'] = df_test['white_win_streak'].values
+    X_test['black_win_streak'] = df_test['black_win_streak'].values
     
     # Encoded player names
     X_test['white_encoded'] = encoders['white'].transform(df_test['white'])

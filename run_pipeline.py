@@ -1,32 +1,65 @@
 """
 Main pipeline script for chess game prediction.
 
+=================================================================
+PHASE 3: DERIVED FEATURES - HEAD-TO-HEAD & RECENT FORM (Feb 2026)
+=================================================================
+
 PIPELINE OVERVIEW:
-This script orchestrates the complete end-to-end ML workflow for predicting
-chess game outcomes (Black wins / Draw / White wins).
+Orchestrates end-to-end ML workflow predicting chess game outcomes.
+Implements all 3 phases of feature engineering and model development.
 
 EXECUTION STEPS:
-1. Load and preprocess tournament data from JSON files
-2. Engineer features (Phase 1 baseline + Phase 2 ELO/performance features)
-3. Train LightGBM multiclass classifier
-4. Evaluate model performance on validation set
-5. Generate predictions for test tournaments
-6. Update test JSON files with predicted results
+1. Load tournament data (174K games, 2133 players)
+2. Engineer features (Phase 1 + 2 + 3 = 23 total features)
+3. Time-based train/val split (80/20, prevents leakage)
+4. Train LightGBM classifier
+5. Evaluate & analyze feature importance
+6. Generate predictions for test data
+7. Update test JSON files with predictions
 
-PHASE 1 (Baseline Model):
-- Basic features: time_control, tours, round_index, player names
-- Simple label encoding for categorical variables
-- Achieved ~46-47% validation accuracy
+=================================================================
+PHASE PROGRESSION & ACCURACY:
+=================================================================
 
-PHASE 2 (Enhanced Features - Current):
-- Added ELO rating features (white_elo, black_elo, elo_diff, elo_avg)
-- Added performance tracking (prev_performance, perf_diff for both players)
-- Improved feature importance insights
-- Achieved ~50% validation accuracy
+PHASE 1 (Baseline - Jan 2026):
+  Features: 6 | Accuracy: ~46-47%
+  Components: Tournament context + player identity
 
-MODEL: LightGBM (Gradient Boosting Decision Trees)
-TASK: 3-class classification (0.0=Black wins, 0.5=Draw, 1.0=White wins)
-VALIDATION: Time-based 80/20 split (prevents data leakage)
+PHASE 2 (ELO + Performance - Feb 2026):
+  Features: 14 | Accuracy: 50.20%
+  Components: ELO ratings + historical performance tracking
+
+PHASE 3 (Derived Features - Feb 2026 - CURRENT):
+  Features: 23 | Accuracy: 52.02% ✅ +1.82 pp improvement!
+  Components: Head-to-head matchups + recent form/momentum
+
+=================================================================
+PHASE 3: NEW FEATURES (9 TOTAL)
+=================================================================
+
+HEAD-TO-HEAD (3):
+  - h2h_games_played: Previous matchups between players
+  - h2h_white_win_rate: Win rate in this specific matchup
+  - h2h_last_result: Outcome of most recent game
+
+RECENT FORM (6):
+  - white/black_form_last5: Last 5 games performance
+  - white/black_form_last10: Last 10 games performance (TOP FEATURE!)
+  - white/black_win_streak: Current win/loss streak
+
+IMPACT: form_last10 ranks #3 overall in feature importance!
+
+=================================================================
+TOP 5 FEATURES (Phase 3)
+=================================================================
+1. black_prev_performance (51,506)
+2. white_prev_performance (50,308)
+3. white_form_last10 (35,576) ← PHASE 3 NEW!
+4. black_form_last10 (30,817) ← PHASE 3 NEW!
+5. tc_classic (27,276)
+
+KEY INSIGHT: Recent momentum is HIGHLY predictive!
 """
 
 import sys
