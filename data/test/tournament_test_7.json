@@ -9,21 +9,21 @@
         "black": "Xu, Lingjing",
         "date": "2020-01-20",
         "id": "tournament_test_7_1",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yu, Xiao",
         "black": "Xie, Libo",
         "date": "2020-01-20",
         "id": "tournament_test_7_2",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Liu, Fangliang",
         "black": "Zhao, Geng",
         "date": "2020-01-20",
         "id": "tournament_test_7_3",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yang, Jinxiang",
@@ -37,7 +37,7 @@
         "black": "Chen, Zenghui",
         "date": "2020-01-20",
         "id": "tournament_test_7_5",
-        "result": 1.0
+        "result": 0.5
       }
     ],
     "tour_2": [
@@ -46,21 +46,21 @@
         "black": "Lu, Guijie",
         "date": "2020-01-22",
         "id": "tournament_test_7_6",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Liu, Fangliang",
         "black": "Xu, Lingjing",
         "date": "2020-01-22",
         "id": "tournament_test_7_7",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yang, Jinxiang",
         "black": "Xie, Libo",
         "date": "2020-01-22",
         "id": "tournament_test_7_8",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yang, Shaqiang",
@@ -74,7 +74,7 @@
         "black": "Xue, Guan",
         "date": "2020-01-22",
         "id": "tournament_test_7_10",
-        "result": 0.5
+        "result": 0.0
       }
     ],
     "tour_3": [
@@ -83,14 +83,14 @@
         "black": "Hu, Shoubiao",
         "date": "2020-01-24",
         "id": "tournament_test_7_11",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Lu, Guijie",
         "black": "Liu, Fangliang",
         "date": "2020-01-24",
         "id": "tournament_test_7_12",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yang, Shaqiang",
@@ -120,7 +120,7 @@
         "black": "Liu, Fangliang",
         "date": "2020-01-26",
         "id": "tournament_test_7_16",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yu, Xiao",
@@ -148,7 +148,7 @@
         "black": "Xie, Libo",
         "date": "2020-01-26",
         "id": "tournament_test_7_20",
-        "result": 0.5
+        "result": 0.0
       }
     ],
     "tour_5": [
@@ -342,7 +342,7 @@
         "black": "Xie, Libo",
         "date": "2020-02-07",
         "id": "tournament_test_7_46",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Zhao, Geng",
@@ -363,7 +363,7 @@
         "black": "Yang, Shaqiang",
         "date": "2020-02-07",
         "id": "tournament_test_7_49",
-        "result": 0.5
+        "result": 1.0
       },
       {
         "white": "Liu, Fangliang",
