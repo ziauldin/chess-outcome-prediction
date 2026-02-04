@@ -2,21 +2,44 @@
 Main pipeline script for chess game prediction.
 
 =================================================================
-PHASE 3: DERIVED FEATURES - HEAD-TO-HEAD & RECENT FORM (Feb 2026)
+PHASE 4: HYPERPARAMETER TUNING FOR LIGHTGBM (Feb 2026)
 =================================================================
 
 PIPELINE OVERVIEW:
-Orchestrates end-to-end ML workflow predicting chess game outcomes.
-Implements all 3 phases of feature engineering and model development.
+Orchestrates end-to-end ML workflow with hyperparameter tuning.
+Automatically finds best LightGBM parameters before training.
 
 EXECUTION STEPS:
 1. Load tournament data (174K games, 2133 players)
 2. Engineer features (Phase 1 + 2 + 3 = 23 total features)
 3. Time-based train/val split (80/20, prevents leakage)
-4. Train LightGBM classifier
-5. Evaluate & analyze feature importance
-6. Generate predictions for test data
-7. Update test JSON files with predictions
+4. TUNE LightGBM hyperparameters (NEW in Phase 4!)
+5. Train LightGBM with best parameters
+6. Evaluate & analyze results
+7. Generate predictions for test data
+8. Update test JSON files with predictions
+
+=================================================================
+PHASE 4 IMPROVEMENTS
+=================================================================
+
+HYPERPARAMETER TUNING:
+  Method: RandomizedSearchCV (efficient, not exhaustive)
+  Parameters: 5 most impactful for LightGBM
+  Iterations: 50 random combinations
+  CV Folds: 5-fold cross-validation
+  Time: ~45 minutes
+
+PARAMETERS TUNED:
+  1. learning_rate (0.01-0.15): Convergence speed
+  2. max_depth (5-15): Model complexity
+  3. num_leaves (20-100): Model capacity
+  4. min_child_samples (5-30): Regularization
+  5. subsample (0.5-1.0): Overfitting prevention
+
+BASELINE (Phase 3) → TARGET (Phase 4):
+  Accuracy: 52.02% → 53.5-54.5% (+1.5-2.5pp)
+  F1 Score: 0.5110 → 0.5250-0.5400
 
 =================================================================
 PHASE PROGRESSION & ACCURACY:
@@ -28,38 +51,16 @@ PHASE 1 (Baseline - Jan 2026):
 
 PHASE 2 (ELO + Performance - Feb 2026):
   Features: 14 | Accuracy: 50.20%
-  Components: ELO ratings + historical performance tracking
+  Components: ELO ratings + historical performance
 
-PHASE 3 (Derived Features - Feb 2026 - CURRENT):
-  Features: 23 | Accuracy: 52.02% ✅ +1.82 pp improvement!
-  Components: Head-to-head matchups + recent form/momentum
+PHASE 3 (Derived Features - Feb 2026):
+  Features: 23 | Accuracy: 52.02%
+  Components: Head-to-head + recent form + momentum
 
-=================================================================
-PHASE 3: NEW FEATURES (9 TOTAL)
-=================================================================
-
-HEAD-TO-HEAD (3):
-  - h2h_games_played: Previous matchups between players
-  - h2h_white_win_rate: Win rate in this specific matchup
-  - h2h_last_result: Outcome of most recent game
-
-RECENT FORM (6):
-  - white/black_form_last5: Last 5 games performance
-  - white/black_form_last10: Last 10 games performance (TOP FEATURE!)
-  - white/black_win_streak: Current win/loss streak
-
-IMPACT: form_last10 ranks #3 overall in feature importance!
-
-=================================================================
-TOP 5 FEATURES (Phase 3)
-=================================================================
-1. black_prev_performance (51,506)
-2. white_prev_performance (50,308)
-3. white_form_last10 (35,576) ← PHASE 3 NEW!
-4. black_form_last10 (30,817) ← PHASE 3 NEW!
-5. tc_classic (27,276)
-
-KEY INSIGHT: Recent momentum is HIGHLY predictive!
+PHASE 4 (Hyperparameter Tuning - Feb 2026 - CURRENT):
+  Parameters: 50 random combinations tested
+  Accuracy: 53.5-54.5% (TARGET) ✨
+  Components: Tuned LightGBM + all Phase 3 features
 """
 
 import sys
@@ -67,6 +68,7 @@ import json
 import pickle
 import numpy as np
 from pathlib import Path
+from datetime import datetime
 
 # Add src to path
 sys.path.append(str(Path(__file__).parent / 'src'))
@@ -83,21 +85,23 @@ np.random.seed(RANDOM_SEED)
 
 def run_pipeline():
     """
-    Execute the complete ML pipeline.
+    Execute the complete ML pipeline with hyperparameter tuning.
     """
     print("="*70)
-    print("CHESS GAME PREDICTION PIPELINE")
+    print("CHESS GAME PREDICTION PIPELINE - PHASE 4")
+    print("HYPERPARAMETER TUNING FOR LIGHTGBM")
     print("="*70)
+    print(f"Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # 1. Load data
-    print("\n[1/7] Loading data...")
+    print("\n[1/8] Loading data...")
     df = load_tournament_data('data/train')
     print(f"  Total games: {len(df)}")
     print(f"  Date range: {df['date'].min()} to {df['date'].max()}")
     print(f"  Unique players: {len(set(df['white']) | set(df['black']))}")
     
     # 2. Create time-based train/validation split
-    print("\n[2/7] Creating train/validation split...")
+    print("\n[2/8] Creating train/validation split...")
     df = df.sort_values('date').reset_index(drop=True)
     split_idx = int(len(df) * 0.8)
     
@@ -112,7 +116,7 @@ def run_pipeline():
     print("  ✓ No data leakage")
     
     # 3. Feature engineering
-    print("\n[3/7] Engineering features...")
+    print("\n[3/8] Engineering features...")
     X_train, X_val, _, encoders, tc_columns = encode_features(df_train, df_val)
     y_train = prepare_labels(df_train)
     y_val = prepare_labels(df_val)
@@ -122,23 +126,23 @@ def run_pipeline():
     print(f"    Draws (1):      {(y_train == 1).sum()} ({(y_train == 1).mean()*100:.1f}%)")
     print(f"    White wins (2): {(y_train == 2).sum()} ({(y_train == 2).mean()*100:.1f}%)")
     
-    # 4. Train model
-    print("\n[4/7] Training model...")
-    model = train_model(X_train, y_train, X_val, y_val)
+    # 4. Train model with hyperparameter tuning
+    print("\n[4/8] Training model with hyperparameter tuning...")
+    model, tuning_results = train_model(X_train, y_train, X_val, y_val, tune_hyperparameters=True)
     
     # 5. Evaluate model
-    print("\n[5/7] Evaluating model...")
-    metrics = evaluate_model(model, X_train, y_train, X_val, y_val)
+    print("\n[5/8] Evaluating model...")
+    metrics = evaluate_model(model, X_train, y_train, X_val, y_val, tuning_results)
     
     # 6. Save artifacts
-    print("\n[6/7] Saving model artifacts...")
+    print("\n[6/8] Saving model artifacts...")
     models_dir = Path('models')
     models_dir.mkdir(exist_ok=True)
     
     # Create model filename with algorithm name and accuracies
     train_acc = metrics['train_accuracy']
     val_acc = metrics['val_accuracy']
-    model_filename = f"lightgbm_{train_acc:.4f}_{val_acc:.4f}.pkl"
+    model_filename = f"lightgbm_tuned_{train_acc:.4f}_{val_acc:.4f}.pkl"
     model_path = models_dir / model_filename
     
     # Save model using pickle
@@ -147,7 +151,7 @@ def run_pipeline():
     print(f"  ✓ Saved model to {model_path}")
     
     # Save metadata with matching filename
-    metadata_filename = f"lightgbm_{train_acc:.4f}_{val_acc:.4f}_metadata.pkl"
+    metadata_filename = f"lightgbm_tuned_{train_acc:.4f}_{val_acc:.4f}_metadata.pkl"
     metadata_path = models_dir / metadata_filename
     
     metadata = {
@@ -158,7 +162,9 @@ def run_pipeline():
         'metrics': metrics,
         'random_seed': RANDOM_SEED,
         'train_date_range': (str(df_train['date'].min()), str(df_train['date'].max())),
-        'val_date_range': (str(df_val['date'].min()), str(df_val['date'].max()))
+        'val_date_range': (str(df_val['date'].min()), str(df_val['date'].max())),
+        'phase': 4,
+        'tuning_results': tuning_results if tuning_results else None
     }
     
     with open(metadata_path, 'wb') as f:
@@ -170,7 +176,8 @@ def run_pipeline():
     outputs_dir.mkdir(exist_ok=True)
     
     metrics_output = {
-        'model': 'raw_baseline',
+        'phase': 4,
+        'model': 'lightgbm_tuned',
         'validation_accuracy': float(metrics['val_accuracy']),
         'validation_f1': float(metrics['val_f1']),
         'validation_logloss': float(metrics['val_logloss']),
@@ -178,7 +185,12 @@ def run_pipeline():
         'train_f1': float(metrics['train_f1']),
         'train_logloss': float(metrics['train_logloss']),
         'confusion_matrix': metrics['confusion_matrix'],
-        'feature_importance': metrics['feature_importance'][:10]
+        'feature_importance': metrics['feature_importance'][:10],
+        'tuning_results': {
+            'best_params': tuning_results['best_params'] if tuning_results else None,
+            'improvement_pp': float(tuning_results['improvement_pp']) if tuning_results else None,
+            'n_iterations': tuning_results['n_iterations'] if tuning_results else None
+        } if tuning_results else None
     }
     
     metrics_json_path = outputs_dir / 'model_metrics.json'
@@ -187,21 +199,31 @@ def run_pipeline():
     print(f"  ✓ Saved metrics to {metrics_json_path}")
     
     # 7. Generate predictions and update test JSONs
-    print("\n[7/7] Generating predictions for test data...")
+    print("\n[7/8] Generating predictions for test data...")
     test_dir = 'data/test'
     df_predictions = make_predictions(test_dir, str(model_path), str(metadata_path))
     
     # Update test JSON files
+    # 8. Update test JSON files
+    print("\n[8/8] Updating test JSON files...")
     update_test_jsons(df_predictions, test_dir)
     
     print("\n" + "="*70)
-    print("PIPELINE COMPLETE")
+    print("PIPELINE COMPLETE - PHASE 4")
     print("="*70)
-    print(f"\n📊 Final Validation Accuracy: {metrics['val_accuracy']:.4f}")
-    print(f"📊 Final Validation F1:       {metrics['val_f1']:.4f}")
+    print(f"\n📊 FINAL RESULTS:")
+    print(f"  Train Accuracy: {metrics['train_accuracy']:.4f}")
+    print(f"  Val Accuracy:   {metrics['val_accuracy']:.4f} ✨")
+    print(f"  Val F1:         {metrics['val_f1']:.4f}")
+    
+    if tuning_results:
+        print(f"\n🎯 TUNING IMPROVEMENT: {tuning_results['improvement_pp']:+.2f}pp")
+        print(f"   From Phase 3: 52.02% → {metrics['val_accuracy']:.2%}")
+    
     print(f"\n✓ Model files saved in {models_dir}/")
     print(f"✓ Metrics saved in {outputs_dir}/")
     print(f"✓ Test predictions saved in {test_dir}/")
+    print(f"\nCompleted at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 
 if __name__ == '__main__':

@@ -1,16 +1,22 @@
 """
 Training module for chess game prediction models.
 
-Baseline chess game outcome predictor using only raw features.
+=================================================================
+PHASE 4: HYPERPARAMETER TUNING (Feb 2026)
+=================================================================
 
-Features used (NO player history, NO rolling stats):
-- time_control (classic/rapid) - one-hot encoded
-- tours (number of rounds) - numeric
-- round_index (round number) - numeric  
-- white (player name) - label encoded
-- black (player name) - label encoded
+Now includes hyperparameter tuning for LightGBM.
+Automatically finds best parameters before training final model.
 
-No historical aggregations, no head-to-head, no form features.
+CHANGES FROM PHASE 3:
+  - Added import for tuning module
+  - train_model() now tunes hyperparameters first
+  - Uses tuned parameters for final model
+  - Returns tuning results in metrics dictionary
+
+EXPECTED IMPROVEMENT:
+  Phase 3: 52.02% accuracy
+  Phase 4: 53.5-54.5% accuracy
 """
 
 import json
@@ -20,69 +26,86 @@ import pickle
 from pathlib import Path
 from sklearn.metrics import accuracy_score, f1_score, log_loss, confusion_matrix, classification_report
 import lightgbm as lgb
+from src.hyperparameter_tuning import tune_lightgbm_quick
 
 
 RANDOM_SEED = 42
 
 
-def train_model(X_train, y_train, X_val, y_val):
+def train_model(X_train, y_train, X_val, y_val, tune_hyperparameters=True):
     """
-    Train LightGBM baseline model.
+    Train LightGBM model with optional hyperparameter tuning.
+    
+    PHASE 4 UPDATE: Now includes hyperparameter tuning by default
     
     Args:
         X_train: Training features
         y_train: Training labels
         X_val: Validation features
         y_val: Validation labels
-        
+        tune_hyperparameters: If True, run hyperparameter tuning (default: True)
+    
     Returns:
-        Trained LightGBM model
+        model: Trained LightGBM model
+        tuning_results: Results from hyperparameter tuning (if performed)
     """
-    print("\n" + "="*70)
-    print("Training Baseline Model (LightGBM)")
-    print("="*70)
     
-    # Create datasets
-    train_data = lgb.Dataset(X_train, label=y_train)
-    val_data = lgb.Dataset(X_val, label=y_val, reference=train_data)
+    tuning_results = None
     
-    # Model parameters
-    params = {
-        'objective': 'multiclass',
-        'num_class': 3,
-        'metric': ['multi_logloss', 'multi_error'],
-        'boosting_type': 'gbdt',
-        'num_leaves': 31,
-        'learning_rate': 0.05,
-        'feature_fraction': 0.9,
-        'bagging_fraction': 0.8,
-        'bagging_freq': 5,
-        'verbose': -1,
-        'random_state': RANDOM_SEED,
-        'n_jobs': -1
-    }
+    if tune_hyperparameters:
+        print("\n[4.1/8] PHASE 4: Tuning hyperparameters...")
+        model, best_params, best_cv_score, tuning_results = tune_lightgbm_quick(
+            X_train, y_train, X_val, y_val,
+            n_iter=50,  # Test 50 random combinations
+            cv=5        # 5-fold cross-validation
+        )
+    else:
+        # Use baseline parameters (Phase 3)
+        print("\n[4/8] Training LightGBM model (baseline parameters)...")
+        
+        # Create datasets
+        train_data = lgb.Dataset(X_train, label=y_train)
+        val_data = lgb.Dataset(X_val, label=y_val, reference=train_data)
+        
+        # Model parameters
+        params = {
+            'objective': 'multiclass',
+            'num_class': 3,
+            'metric': ['multi_logloss', 'multi_error'],
+            'boosting_type': 'gbdt',
+            'num_leaves': 31,
+            'learning_rate': 0.05,
+            'feature_fraction': 0.9,
+            'bagging_fraction': 0.8,
+            'bagging_freq': 5,
+            'verbose': -1,
+            'random_state': RANDOM_SEED,
+            'n_jobs': -1
+        }
+        
+        # Train
+        callbacks = [
+            lgb.early_stopping(stopping_rounds=50),
+            lgb.log_evaluation(period=100)
+        ]
+        
+        model = lgb.train(
+            params,
+            train_data,
+            num_boost_round=500,
+            valid_sets=[train_data, val_data],
+            valid_names=['train', 'valid'],
+            callbacks=callbacks
+        )
     
-    # Train
-    callbacks = [
-        lgb.early_stopping(stopping_rounds=50),
-        lgb.log_evaluation(period=100)
-    ]
-    
-    model = lgb.train(
-        params,
-        train_data,
-        num_boost_round=500,
-        valid_sets=[train_data, val_data],
-        valid_names=['train', 'valid'],
-        callbacks=callbacks
-    )
-    
-    return model
+    return model, tuning_results
 
 
-def evaluate_model(model, X_train, y_train, X_val, y_val):
+def evaluate_model(model, X_train, y_train, X_val, y_val, tuning_results=None):
     """
     Evaluate model performance.
+    
+    PHASE 4 UPDATE: Includes tuning results in output
     
     Args:
         model: Trained model
@@ -90,71 +113,76 @@ def evaluate_model(model, X_train, y_train, X_val, y_val):
         y_train: Training labels
         X_val: Validation features
         y_val: Validation labels
+        tuning_results: Optional tuning results dictionary
         
     Returns:
         Dictionary of evaluation metrics
     """
-    print("\n" + "="*70)
-    print("BASELINE MODEL EVALUATION")
-    print("="*70)
+    print("\n[5/8] Evaluating model...")
     
-    # Predictions
-    y_train_pred_proba = model.predict(X_train)
-    y_val_pred_proba = model.predict(X_val)
+    # Get predictions (class labels directly)
+    y_train_pred = model.predict(X_train)
+    y_val_pred = model.predict(X_val)
     
-    y_train_pred = np.argmax(y_train_pred_proba, axis=1)
-    y_val_pred = np.argmax(y_val_pred_proba, axis=1)
+    # Get probabilities (for logloss)
+    y_train_proba = model.predict_proba(X_train)
+    y_val_proba = model.predict_proba(X_val)
     
-    # Metrics
+    # Ensure proba is 2D (handle edge case)
+    if y_train_proba.ndim == 1:
+        y_train_proba = y_train_proba.reshape(-1, 1)
+    if y_val_proba.ndim == 1:
+        y_val_proba = y_val_proba.reshape(-1, 1)
+    
+    # Calculate metrics
     train_acc = accuracy_score(y_train, y_train_pred)
     val_acc = accuracy_score(y_val, y_val_pred)
     
-    train_f1 = f1_score(y_train, y_train_pred, average='macro')
-    val_f1 = f1_score(y_val, y_val_pred, average='macro')
+    train_f1 = f1_score(y_train, y_train_pred, average='weighted')
+    val_f1 = f1_score(y_val, y_val_pred, average='weighted')
     
-    train_logloss = log_loss(y_train, y_train_pred_proba)
-    val_logloss = log_loss(y_val, y_val_pred_proba)
+    train_logloss = log_loss(y_train, y_train_proba)
+    val_logloss = log_loss(y_val, y_val_proba)
     
     print("\nMETRICS:")
     print(f"  Training Accuracy:   {train_acc:.4f}")
     print(f"  Validation Accuracy: {val_acc:.4f}")
-    print(f"  Training F1 (macro): {train_f1:.4f}")
-    print(f"  Validation F1 (macro): {val_f1:.4f}")
+    print(f"  Training F1 (weighted): {train_f1:.4f}")
+    print(f"  Validation F1 (weighted): {val_f1:.4f}")
     print(f"  Training Log Loss:   {train_logloss:.4f}")
     print(f"  Validation Log Loss: {val_logloss:.4f}")
     
-    print("\nVALIDATION CLASSIFICATION REPORT:")
-    print(classification_report(
-        y_val, y_val_pred,
-        target_names=['Black Wins (0.0)', 'Draw (0.5)', 'White Wins (1.0)'],
-        digits=4
-    ))
+    if tuning_results:
+        print(f"  Tuning Improvement:  {tuning_results['improvement_pp']:+.2f}pp")
     
-    print("\nCONFUSION MATRIX (Validation):")
+    # Feature importance
+    feature_importance = sorted(
+        zip(model.feature_name_, model.feature_importances_),
+        key=lambda x: x[1],
+        reverse=True
+    )
+    
+    print(f"\n  Top 5 Features:")
+    for i, (feature, importance) in enumerate(feature_importance[:5], 1):
+        print(f"    {i}. {feature}: {importance:.0f}")
+    
+    # Confusion matrix
     cm = confusion_matrix(y_val, y_val_pred)
-    print("                Predicted")
-    print("                Black  Draw  White")
-    print(f"Actual Black  {cm[0][0]:6d} {cm[0][1]:5d} {cm[0][2]:6d}")
-    print(f"       Draw   {cm[1][0]:6d} {cm[1][1]:5d} {cm[1][2]:6d}")
-    print(f"       White  {cm[2][0]:6d} {cm[2][1]:5d} {cm[2][2]:6d}")
+    cm_list = cm.tolist()
     
-    print("\nFEATURE IMPORTANCE (Top 10):")
-    feature_importance = pd.DataFrame({
-        'feature': model.feature_name(),
-        'importance': model.feature_importance(importance_type='gain')
-    }).sort_values('importance', ascending=False)
-    print(feature_importance.head(10).to_string(index=False))
-    
-    return {
-        'train_accuracy': train_acc,
-        'val_accuracy': val_acc,
-        'train_f1': train_f1,
-        'val_f1': val_f1,
-        'train_logloss': train_logloss,
-        'val_logloss': val_logloss,
-        'confusion_matrix': cm.tolist(),
-        'feature_importance': feature_importance.to_dict('records')
+    metrics = {
+        'train_accuracy': float(train_acc),
+        'val_accuracy': float(val_acc),
+        'train_f1': float(train_f1),
+        'val_f1': float(val_f1),
+        'train_logloss': float(train_logloss),
+        'val_logloss': float(val_logloss),
+        'confusion_matrix': cm_list,
+        'feature_importance': [(name, float(imp)) for name, imp in feature_importance],
+        'tuning_results': tuning_results
     }
+    
+    return metrics
 
 
 def main():
@@ -203,10 +231,10 @@ def main():
     print(f"  White wins (2): {(y_train == 2).sum()} ({(y_train == 2).mean()*100:.1f}%)")
     
     # Train model
-    model = train_model(X_train, y_train, X_val, y_val)
+    model, tuning_results = train_model(X_train, y_train, X_val, y_val)
     
     # Evaluate
-    metrics = evaluate_model(model, X_train, y_train, X_val, y_val)
+    metrics = evaluate_model(model, X_train, y_train, X_val, y_val, tuning_results)
     
     # Save artifacts
     print("\n" + "="*70)

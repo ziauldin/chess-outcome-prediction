@@ -49,10 +49,22 @@ def predict_outcomes(model, X_test):
         Tuple of (predicted_classes, predicted_probabilities)
     """
     # Get probabilities for each class
-    y_pred_proba = model.predict(X_test)
+    if hasattr(model, "predict_proba"):
+        y_pred_proba = model.predict_proba(X_test)
+    else:
+        y_pred_proba = model.predict(X_test)
     
-    # Get predicted class (0, 1, or 2)
-    y_pred_class = np.argmax(y_pred_proba, axis=1)
+    # If model returns class labels (1D), convert to one-hot probabilities
+    if y_pred_proba.ndim == 1:
+        y_pred_class = y_pred_proba.astype(int)
+        y_pred_proba_fixed = np.zeros((len(y_pred_class), 3))
+        for idx, cls in enumerate(y_pred_class):
+            if 0 <= cls < 3:
+                y_pred_proba_fixed[idx, cls] = 1.0
+        y_pred_proba = y_pred_proba_fixed
+    else:
+        # Get predicted class (0, 1, or 2)
+        y_pred_class = np.argmax(y_pred_proba, axis=1)
     
     # Convert class labels back to game results (0.0, 0.5, 1.0)
     label_to_result = {0: 0.0, 1: 0.5, 2: 1.0}
@@ -145,6 +157,15 @@ def make_predictions(test_data_dir, model_path, metadata_path):
     
     # Add predictions to dataframe
     df_test['predicted_result'] = predictions
+    
+    # Ensure probabilities are 2D with 3 columns
+    if probabilities.ndim == 1:
+        probabilities = probabilities.reshape(-1, 1)
+    if probabilities.shape[1] < 3:
+        padded = np.zeros((probabilities.shape[0], 3))
+        padded[:, :probabilities.shape[1]] = probabilities
+        probabilities = padded
+    
     df_test['prob_black_wins'] = probabilities[:, 0]
     df_test['prob_draw'] = probabilities[:, 1]
     df_test['prob_white_wins'] = probabilities[:, 2]

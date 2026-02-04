@@ -104,7 +104,7 @@
         "black": "Xie, Libo",
         "date": "2020-01-24",
         "id": "tournament_test_7_14",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Xue, Guan",
@@ -157,14 +157,14 @@
         "black": "Hu, Shoubiao",
         "date": "2020-01-28",
         "id": "tournament_test_7_21",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Liu, Fangliang",
         "black": "Yang, Shaqiang",
         "date": "2020-01-28",
         "id": "tournament_test_7_22",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yu, Xiao",
@@ -208,7 +208,7 @@
         "black": "Xue, Guan",
         "date": "2020-01-30",
         "id": "tournament_test_7_28",
-        "result": 0.5
+        "result": 0.0
       },
       {
         "white": "Yu, Xiao",
@@ -222,7 +222,7 @@
         "black": "Xie, Libo",
         "date": "2020-01-30",
         "id": "tournament_test_7_30",
-        "result": 0.5
+        "result": 0.0
       }
     ],
     "tour_7": [
@@ -252,7 +252,7 @@
         "black": "Xie, Libo",
         "date": "2020-02-01",
         "id": "tournament_test_7_34",
-        "result": 1.0
+        "result": 0.0
       },
       {
         "white": "Yu, Xiao",
@@ -282,7 +282,7 @@
         "black": "Xie, Libo",
         "date": "2020-02-03",
         "id": "tournament_test_7_38",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Yang, Jinxiang",
@@ -312,7 +312,7 @@
         "black": "Xie, Libo",
         "date": "2020-02-05",
         "id": "tournament_test_7_42",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Chen, Zenghui",
@@ -333,7 +333,7 @@
         "black": "Liu, Fangliang",
         "date": "2020-02-05",
         "id": "tournament_test_7_45",
-        "result": 0.5
+        "result": 1.0
       }
     ],
     "tour_10": [
@@ -370,7 +370,7 @@
         "black": "Yang, Jinxiang",
         "date": "2020-02-07",
         "id": "tournament_test_7_50",
-        "result": 0.5
+        "result": 0.0
       }
     ]
   },
