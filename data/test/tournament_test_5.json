@@ -9,21 +9,21 @@
         "black": "Zhao Zhenyuan",
         "date": "2020-01-20",
         "id": "tournament_test_5_1",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Yu Dongchun",
         "black": "Deng Guo",
         "date": "2020-01-20",
         "id": "tournament_test_5_2",
-        "result": 0.0
+        "result": 1.0
       },
       {
         "white": "Liu Yapu",
         "black": "Qiang Haitian",
         "date": "2020-01-20",
         "id": "tournament_test_5_3",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Li Yangyi",
@@ -37,7 +37,7 @@
         "black": "Zhang Qiyan",
         "date": "2020-01-20",
         "id": "tournament_test_5_5",
-        "result": 0.5
+        "result": 1.0
       }
     ],
     "tour_2": [
@@ -46,7 +46,7 @@
         "black": "Lv Mingmei",
         "date": "2020-01-22",
         "id": "tournament_test_5_6",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Liu Yapu",
@@ -60,21 +60,21 @@
         "black": "Deng Guo",
         "date": "2020-01-22",
         "id": "tournament_test_5_8",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Zhou Xiulu",
         "black": "Qiang Haitian",
         "date": "2020-01-22",
         "id": "tournament_test_5_9",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Zhang Qiyan",
         "black": "Chen Xuxiang",
         "date": "2020-01-22",
         "id": "tournament_test_5_10",
-        "result": 0.0
+        "result": 0.5
       }
     ],
     "tour_3": [
@@ -90,7 +90,7 @@
         "black": "Liu Yapu",
         "date": "2020-01-24",
         "id": "tournament_test_5_12",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Zhou Xiulu",
@@ -104,14 +104,14 @@
         "black": "Deng Guo",
         "date": "2020-01-24",
         "id": "tournament_test_5_14",
-        "result": 0.0
+        "result": 1.0
       },
       {
         "white": "Chen Xuxiang",
         "black": "Qiang Haitian",
         "date": "2020-01-24",
         "id": "tournament_test_5_15",
-        "result": 0.0
+        "result": 0.5
       }
     ],
     "tour_4": [
@@ -120,14 +120,14 @@
         "black": "Liu Yapu",
         "date": "2020-01-26",
         "id": "tournament_test_5_16",
-        "result": 0.0
+        "result": 0.5
       },
       {
         "white": "Yu Dongchun",
         "black": "Li Yangyi",
         "date": "2020-01-26",
         "id": "tournament_test_5_17",
-        "result": 0.0
+        "result": 1.0
       },
       {
         "white": "Lv Mingmei",
@@ -171,7 +171,7 @@
         "black": "Zhang Qiyan",
         "date": "2020-01-28",
         "id": "tournament_test_5_23",
-        "result": 0.5
+        "result": 1.0
       },
       {
         "white": "Lv Mingmei",
@@ -215,14 +215,14 @@
         "black": "Qiang Haitian",
         "date": "2020-01-30",
         "id": "tournament_test_5_29",
-        "result": 0.5
+        "result": 1.0
       },
       {
         "white": "Lv Mingmei",
         "black": "Deng Guo",
         "date": "2020-01-30",
         "id": "tournament_test_5_30",
-        "result": 0.5
+        "result": 0.0
       }
     ],
     "tour_7": [
@@ -252,14 +252,14 @@
         "black": "Deng Guo",
         "date": "2020-02-01",
         "id": "tournament_test_5_34",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Yu Dongchun",
         "black": "Zhao Zhenyuan",
         "date": "2020-02-01",
         "id": "tournament_test_5_35",
-        "result": 0.5
+        "result": 1.0
       }
     ],
     "tour_8": [
@@ -268,7 +268,7 @@
         "black": "Chen Xuxiang",
         "date": "2020-02-03",
         "id": "tournament_test_5_36",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Zhang Qiyan",
@@ -282,7 +282,7 @@
         "black": "Deng Guo",
         "date": "2020-02-03",
         "id": "tournament_test_5_38",
-        "result": 1.0
+        "result": 0.0
       },
       {
         "white": "Li Yangyi",
@@ -296,7 +296,7 @@
         "black": "Yu Dongchun",
         "date": "2020-02-03",
         "id": "tournament_test_5_40",
-        "result": 1.0
+        "result": 0.0
       }
     ],
     "tour_9": [
@@ -326,14 +326,14 @@
         "black": "Li Yangyi",
         "date": "2020-02-05",
         "id": "tournament_test_5_44",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Yu Dongchun",
         "black": "Liu Yapu",
         "date": "2020-02-05",
         "id": "tournament_test_5_45",
-        "result": 0.0
+        "result": 1.0
       }
     ],
     "tour_10": [
@@ -342,14 +342,14 @@
         "black": "Deng Guo",
         "date": "2020-02-07",
         "id": "tournament_test_5_46",
-        "result": 1.0
+        "result": 0.0
       },
       {
         "white": "Qiang Haitian",
         "black": "Zhao Zhenyuan",
         "date": "2020-02-07",
         "id": "tournament_test_5_47",
-        "result": 1.0
+        "result": 0.5
       },
       {
         "white": "Lv Mingmei",
@@ -363,14 +363,14 @@
         "black": "Zhou Xiulu",
         "date": "2020-02-07",
         "id": "tournament_test_5_49",
-        "result": 0.0
+        "result": 1.0
       },
       {
         "white": "Liu Yapu",
         "black": "Li Yangyi",
         "date": "2020-02-07",
         "id": "tournament_test_5_50",
-        "result": 1.0
+        "result": 0.5
       }
     ]
   },
