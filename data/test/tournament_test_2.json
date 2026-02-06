@@ -231,7 +231,7 @@
         "black": "\u9648\u8363\u987a",
         "date": "2020-02-01",
         "id": "tournament_test_2_31",
-        "result": 0.5
+        "result": 1.0
       },
       {
         "white": "\u9b4f\u8f9f\u6d9b",
@@ -275,7 +275,7 @@
         "black": "\u8463\u6d77\u975e",
         "date": "2020-02-03",
         "id": "tournament_test_2_37",
-        "result": 0.5
+        "result": 1.0
       },
       {
         "white": "\u9b4f\u8f9f\u6d9b",

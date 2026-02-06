@@ -38,7 +38,7 @@ PHASE 7A: DATA CLEANING & VALIDATION
     - Validate results (only 0.0, 0.5, 1.0)
     - Remove future dates
     - Feature correlation analysis
-  Expected: +0.7-1.5pp → 53.2-54.0%
+  Expected: +0.7-1.5pp -> 53.2-54.0%
 
 PHASE 7B: TEMPORAL FEATURES
   New Features (~25 additional):
@@ -51,13 +51,13 @@ PHASE 7B: TEMPORAL FEATURES
     - Tournament progress
     - Expected score (ELO-based)
     - Underdog/favorite factors
-  Expected: +2-3pp from 7A → 55.2-57.0%
+  Expected: +2-3pp from 7A -> 55.2-57.0%
 
 COMBINED PHASE 7:
-  ✓ Better data quality = better patterns
-  ✓ Temporal features = psychological factors
-  ✓ Momentum + streaks = confidence/pressure
-  ✓ Total expected: 55.2-57.0% (+2.7-4.5pp from Phase 6)
+  [OK] Better data quality = better patterns
+  [OK] Temporal features = psychological factors
+  [OK] Momentum + streaks = confidence/pressure
+  [OK] Total expected: 55.2-57.0% (+2.7-4.5pp from Phase 6)
 
 =================================================================
 PHASE PROGRESSION & ACCURACY:
@@ -91,7 +91,7 @@ PHASE 6 (Weighted Ensemble - Feb 2026):
 
 PHASE 7 (Clean Data + Temporal - Feb 2026 - CURRENT):
   Components: Data cleaning + 25 temporal features + ensemble
-  Target: 55.2-57.0% (+2.7-4.5pp from Phase 6) ✨
+  Target: 55.2-57.0% (+2.7-4.5pp from Phase 6) ***
   Time: 5-7 hours total
 """
 
@@ -184,7 +184,7 @@ def run_pipeline():
     
     # Verify no data leakage
     assert df_train['date'].max() <= df_val['date'].min(), "Data leakage detected!"
-    print("  ✓ No data leakage")
+    print("  [OK] No data leakage")
     
     # 6. Feature engineering
     print("\n[6/12] Engineering features...")
@@ -327,22 +327,22 @@ def run_pipeline():
     # Random Forest
     if hasattr(rf_model, 'feature_importances_'):
         importances_dict['RandomForest'] = rf_model.feature_importances_
-        print(f"  ✓ Random Forest: {len(feature_names)} features")
+        print(f"  [OK] Random Forest: {len(feature_names)} features")
     
     # XGBoost
     if hasattr(xgb_model, 'feature_importances_'):
         importances_dict['XGBoost'] = xgb_model.feature_importances_
-        print(f"  ✓ XGBoost: {len(feature_names)} features")
+        print(f"  [OK] XGBoost: {len(feature_names)} features")
     
     # CatBoost
     if hasattr(cat_model, 'feature_importances_'):
         importances_dict['CatBoost'] = cat_model.feature_importances_
-        print(f"  ✓ CatBoost: {len(feature_names)} features")
+        print(f"  [OK] CatBoost: {len(feature_names)} features")
     
     # LightGBM
     if hasattr(lgb_model, 'feature_importances_'):
         importances_dict['LightGBM'] = lgb_model.feature_importances_
-        print(f"  ✓ LightGBM: {len(feature_names)} features")
+        print(f"  [OK] LightGBM: {len(feature_names)} features")
     
     # Calculate average importance across all models
     avg_importance = np.mean([imp for imp in importances_dict.values()], axis=0)
@@ -386,7 +386,7 @@ def run_pipeline():
     
     feature_importance_path = outputs_dir / 'feature_importance.csv'
     importance_df.to_csv(feature_importance_path, index=False)
-    print(f"\n  ✓ Saved complete feature importance to: {feature_importance_path}")
+    print(f"\n  [OK] Saved complete feature importance to: {feature_importance_path}")
     
     # Create visualization
     try:
@@ -432,10 +432,10 @@ def run_pipeline():
         plt.savefig(plot_path, dpi=300, bbox_inches='tight')
         plt.close()
         
-        print(f"  ✓ Saved visualization to: {plot_path}")
+        print(f"  [OK] Saved visualization to: {plot_path}")
         
     except Exception as e:
-        print(f"  ⚠ Could not create visualization: {e}")
+        print(f"  [WARNING] Could not create visualization: {e}")
     
     # Summarize feature importance by category
     print("\n  Feature Importance Summary by Category:")
@@ -498,23 +498,23 @@ def run_pipeline():
     ensemble_proba = val_proba_ensemble
     ensemble_val_acc = accuracy_score(y_val, ensemble_preds)
     
-    print(f"\n  Ensemble validation accuracy: {ensemble_val_acc:.4f} ✨")
+    print(f"\n  Ensemble validation accuracy: {ensemble_val_acc:.4f} ***")
     
     # Compare with best base model
     improvement = (ensemble_val_acc - base_model_scores[best_base_model]) * 100
     print(f"  Improvement over best base model: {improvement:+.2f}pp")
     
     if improvement > 0:
-        print(f"  ✓ Ensemble outperforms best base model!")
+        print(f"  [OK] Ensemble outperforms best base model!")
     else:
-        print(f"  ✗ Ensemble underperforms - using best base model instead")
+        print(f"  [X] Ensemble underperforms - using best base model instead")
     
     # Use best performing approach
     if ensemble_val_acc >= max(base_model_scores.values()):
-        print(f"\n  → Using weighted ensemble (accuracy: {ensemble_val_acc:.4f})")
+        print(f"\n  -> Using weighted ensemble (accuracy: {ensemble_val_acc:.4f})")
         use_ensemble = True
     else:
-        print(f"\n  → Using best base model: {best_base_model} (accuracy: {base_model_scores[best_base_model]:.4f})")
+        print(f"\n  -> Using best base model: {best_base_model} (accuracy: {base_model_scores[best_base_model]:.4f})")
         use_ensemble = False
         ensemble_preds = base_models[best_base_model].predict(X_val)
         ensemble_proba = base_models[best_base_model].predict_proba(X_val)
@@ -600,7 +600,7 @@ def run_pipeline():
     # Save model using pickle
     with open(model_path, 'wb') as f:
         pickle.dump(model, f)
-    print(f"  ✓ Saved model to {model_path}")
+    print(f"  [OK] Saved model to {model_path}")
     
     # Save metadata with matching filename
     metadata_filename = f"{model_type}_{train_acc:.4f}_{val_acc:.4f}_metadata.pkl"
@@ -624,7 +624,7 @@ def run_pipeline():
     
     with open(metadata_path, 'wb') as f:
         pickle.dump(metadata, f)
-    print(f"  ✓ Saved metadata to {metadata_path}")
+    print(f"  [OK] Saved metadata to {metadata_path}")
     
     # Save metrics to JSON
     outputs_dir = Path('outputs')
@@ -663,7 +663,7 @@ def run_pipeline():
     metrics_json_path = outputs_dir / 'model_metrics.json'
     with open(metrics_json_path, 'w') as f:
         json.dump(metrics_output, f, indent=2)
-    print(f"  ✓ Saved metrics to {metrics_json_path}")
+    print(f"  [OK] Saved metrics to {metrics_json_path}")
     
     # 7. Generate predictions and update test JSONs
     print("\n  Generating predictions for test data...")
@@ -677,36 +677,36 @@ def run_pipeline():
     print("\n" + "="*70)
     print("PIPELINE COMPLETE - PHASE 7")
     print("="*70)
-    print(f"\n📊 PHASE 7 FINAL RESULTS:")
+    print(f"\n[STATS] PHASE 7 FINAL RESULTS:")
     print(f"  Train Accuracy: {metrics['train_accuracy']:.4f}")
-    print(f"  Val Accuracy:   {metrics['val_accuracy']:.4f} ✨")
+    print(f"  Val Accuracy:   {metrics['val_accuracy']:.4f} ***")
     print(f"  Val F1:         {metrics['val_f1']:.4f}")
     
-    print(f"\n🎯 BASE MODEL COMPARISON:")
+    print(f"\n[GOAL] BASE MODEL COMPARISON:")
     for name, score in sorted(base_model_scores.items(), key=lambda x: x[1], reverse=True):
         print(f"   {name:15s}: {score:.4f}")
-    print(f"   {'ENSEMBLE':15s}: {metrics['val_accuracy']:.4f} ✨")
+    print(f"   {'ENSEMBLE':15s}: {metrics['val_accuracy']:.4f} ***")
     
-    print(f"\n📈 DATA CLEANING STATS:")
+    print(f"\n[CHART] DATA CLEANING STATS:")
     print(f"   Initial games:  {quality_report.get('total_games', 0):,}")
     print(f"   Games removed:  {cleaning_stats.get('total_removed', 0):,} ({cleaning_stats.get('removal_percentage', 0):.2f}%)")
     print(f"   Final games:    {cleaning_stats.get('final_count', 0):,}")
     
     ensemble_improvement = (metrics['val_accuracy'] - max(base_model_scores.values())) * 100
-    print(f"\n📈 ENSEMBLE IMPROVEMENT: {ensemble_improvement:+.2f}pp over best base model")
+    print(f"\n[CHART] ENSEMBLE IMPROVEMENT: {ensemble_improvement:+.2f}pp over best base model")
     
-    print(f"\n📊 PHASE PROGRESSION:")
+    print(f"\n[STATS] PHASE PROGRESSION:")
     print(f"   Phase 4 (LightGBM):          52.11%")
     print(f"   Phase 5 (RandomForest):      52.34% (+0.23pp)")
     print(f"   Phase 6 (Ensemble):          52.53% (+0.19pp)")
     print(f"   Phase 7 (Clean+Temporal):    {metrics['val_accuracy']:.2%} ({(metrics['val_accuracy'] - 0.5253)*100:+.2f}pp)")
     
     total_improvement = (metrics['val_accuracy'] - 0.5211) * 100
-    print(f"\n🚀 TOTAL IMPROVEMENT FROM PHASE 4: {total_improvement:+.2f}pp")
+    print(f"\n[LAUNCH] TOTAL IMPROVEMENT FROM PHASE 4: {total_improvement:+.2f}pp")
     
-    print(f"\n✓ Model saved in {models_dir}/")
-    print(f"✓ Metrics saved in {outputs_dir}/")
-    print(f"✓ Test predictions saved in {test_dir}/")
+    print(f"\n[OK] Model saved in {models_dir}/")
+    print(f"[OK] Metrics saved in {outputs_dir}/")
+    print(f"[OK] Test predictions saved in {test_dir}/")
     print(f"\nCompleted at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 

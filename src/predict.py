@@ -170,7 +170,7 @@ def make_predictions(test_data_dir, model_path, metadata_path):
     df_test['prob_draw'] = probabilities[:, 1]
     df_test['prob_white_wins'] = probabilities[:, 2]
     
-    print(f"✓ Generated {len(predictions)} predictions")
+    print(f"[OK] Generated {len(predictions)} predictions")
     print(f"\nPrediction distribution:")
     print(f"  Black wins (0.0): {(predictions == 0.0).sum()} ({(predictions == 0.0).mean()*100:.1f}%)")
     print(f"  Draws (0.5):      {(predictions == 0.5).sum()} ({(predictions == 0.5).mean()*100:.1f}%)")

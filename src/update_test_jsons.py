@@ -46,10 +46,10 @@ def update_test_jsons(df_predictions, test_dir, output_dir=None):
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(tournament, f, indent=2)
         
-        print(f"✓ Updated {json_file.name}")
+        print(f"[OK] Updated {json_file.name}")
     
-    print(f"\n✓ Updated {updated_count} games in {len(list(test_path.glob('*.json')))} files")
-    print(f"✓ Files saved to {output_path}")
+    print(f"\n[OK] Updated {updated_count} games in {len(list(test_path.glob('*.json')))} files")
+    print(f"[OK] Files saved to {output_path}")
 
 
 if __name__ == '__main__':

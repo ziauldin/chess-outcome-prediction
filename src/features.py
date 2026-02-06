@@ -11,15 +11,15 @@ Added sophisticated derived features capturing:
 2. Recent Form/Momentum - Rolling window performance and streaks
 
 PERFORMANCE IMPROVEMENTS:
-- Validation Accuracy: 50.20% → 52.02% (+1.82%)
-- Validation F1: 0.4938 → 0.5162
-- Total Features: 14 → 23 (+9 new derived features)
+- Validation Accuracy: 50.20% -> 52.02% (+1.82%)
+- Validation F1: 0.4938 -> 0.5162
+- Total Features: 14 -> 23 (+9 new derived features)
 
 TOP 5 FEATURES (Phase 3):
 1. black_prev_performance (51,506)
 2. white_prev_performance (50,308)
-3. white_form_last10 (35,576) ← NEW Phase 3 Feature!
-4. black_form_last10 (30,817) ← NEW Phase 3 Feature!
+3. white_form_last10 (35,576) <- NEW Phase 3 Feature!
+4. black_form_last10 (30,817) <- NEW Phase 3 Feature!
 5. tc_classic (27,276)
 
 Features used (23 total):
@@ -203,6 +203,14 @@ def calculate_performance_features(df):
         result = df.loc[idx, 'result']
         tournament = df.loc[idx, 'tournament_name']
         
+        # Skip games with missing results (e.g., test data)
+        if result is None or pd.isna(result):
+            df.loc[idx, 'white_prev_performance'] = 0.5
+            df.loc[idx, 'black_prev_performance'] = 0.5
+            df.loc[idx, 'white_perf_diff'] = 0.0
+            df.loc[idx, 'black_perf_diff'] = 0.0
+            continue
+        
         # Tournament change detection - finalize previous tournament stats
         if current_tournament != tournament:
             # Update player stats from completed tournament
@@ -305,7 +313,7 @@ def calculate_h2h_features(df):
         h2h_history[matchup].append(result)
     
     unique_matchups = len(h2h_history)
-    print(f"    ✓ Found {unique_matchups} unique matchups")
+    print(f"    [OK] Found {unique_matchups} unique matchups")
     
     return df
 
@@ -409,6 +417,10 @@ def calculate_form_features(df):
             df.loc[idx, 'black_win_streak'] = calculate_streak(black_scores)
         
         # Update player histories AFTER processing this game
+        # Skip games with missing results (e.g., test data)
+        if result is None or pd.isna(result):
+            continue
+            
         if white not in player_games:
             player_games[white] = []
         player_games[white].append((date, result))  # White's score is the result
@@ -419,7 +431,7 @@ def calculate_form_features(df):
     
     num_players = len(player_games)
     avg_games = np.mean([len(games) for games in player_games.values()])
-    print(f"    ✓ Tracked {num_players} players (avg {avg_games:.1f} games each)")
+    print(f"    [OK] Tracked {num_players} players (avg {avg_games:.1f} games each)")
     
     return df
 

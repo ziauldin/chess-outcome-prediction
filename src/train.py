@@ -218,7 +218,7 @@ def main():
     
     # Verify no data leakage
     assert df_train['date'].max() <= df_val['date'].min(), "Data leakage detected!"
-    print("✓ No data leakage - validation games are strictly after training games")
+    print("[OK] No data leakage - validation games are strictly after training games")
     
     # Encode features
     X_train, X_val, _, encoders, time_control_columns = encode_features(df_train, df_val)
@@ -253,7 +253,7 @@ def main():
     # Save model using pickle
     with open(model_path, 'wb') as f:
         pickle.dump(model, f)
-    print(f"✓ Saved model to {model_path}")
+    print(f"[OK] Saved model to {model_path}")
     
     # Save encoders and metadata with matching filename
     metadata_filename = f"lightgbm_{train_acc:.4f}_{val_acc:.4f}_metadata.pkl"
@@ -269,13 +269,13 @@ def main():
     }
     with open(metadata_path, 'wb') as f:
         pickle.dump(metadata, f)
-    print(f"✓ Saved metadata to {metadata_path}")
+    print(f"[OK] Saved metadata to {metadata_path}")
     
     print("\n" + "="*70)
     print("BASELINE MODEL TRAINING COMPLETE")
     print("="*70)
-    print(f"\n📊 Final Validation Accuracy: {metrics['val_accuracy']:.4f}")
-    print(f"📊 Final Validation F1:       {metrics['val_f1']:.4f}")
+    print(f"\n[STATS] Final Validation Accuracy: {metrics['val_accuracy']:.4f}")
+    print(f"[STATS] Final Validation F1:       {metrics['val_f1']:.4f}")
     print("\nModel files saved in models/")
 
 

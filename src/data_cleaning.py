@@ -47,7 +47,7 @@ def check_data_quality(df, verbose=True):
             pct = count / len(df) * 100
             print(f"  {col:25s}: {count:6d} ({pct:5.2f}%)")
     elif verbose:
-        print("\n[1] Missing Values: ✓ None")
+        print("\n[1] Missing Values: [OK] None")
     
     # 2. Duplicate games
     duplicates = df.duplicated(subset=['white', 'black', 'date', 'result'], keep=False)
@@ -70,7 +70,7 @@ def check_data_quality(df, verbose=True):
             print(f"  White ELO out of range [1200-2900]: {invalid_elo_white:,}")
             print(f"  Black ELO out of range [1200-2900]: {invalid_elo_black:,}")
             if report['invalid_elo_count'] == 0:
-                print("  ✓ All ELO ratings valid")
+                print("  [OK] All ELO ratings valid")
     
     # 4. Result validation
     if 'result' in df.columns:
@@ -80,7 +80,7 @@ def check_data_quality(df, verbose=True):
         if verbose:
             print(f"\n[4] Invalid Results: {report['invalid_result_count']:,}")
             if report['invalid_result_count'] == 0:
-                print("  ✓ All results valid (0.0, 0.5, 1.0)")
+                print("  [OK] All results valid (0.0, 0.5, 1.0)")
             else:
                 print(f"  Invalid values: {df[~valid_results]['result'].unique()}")
     
@@ -93,7 +93,7 @@ def check_data_quality(df, verbose=True):
             print(f"\n[5] Date Issues:")
             print(f"  Future dates: {future_dates:,}")
             if future_dates == 0:
-                print("  ✓ All dates valid")
+                print("  [OK] All dates valid")
             print(f"  Date range: {df['date'].min()} to {df['date'].max()}")
     
     # 6. Dataset statistics
@@ -297,7 +297,7 @@ def analyze_feature_correlation(X_train, threshold=0.95, verbose=True):
             print(f"\n  Total pairs: {len(correlated_pairs)}")
             print(f"  Recommendation: Consider removing one feature from each pair")
         else:
-            print("  ✓ No highly correlated features found")
+            print("  [OK] No highly correlated features found")
         
         print("\n" + "="*70 + "\n")
     
@@ -355,6 +355,6 @@ def remove_correlated_features(X_train, X_val, correlated_pairs, verbose=True):
         print(f"\nRemoved {len(removed_features)} correlated features:")
         for feat in removed_features:
             print(f"  - {feat}")
-        print(f"\nFeatures: {X_train.shape[1]} → {X_train_reduced.shape[1]}")
+        print(f"\nFeatures: {X_train.shape[1]} -> {X_train_reduced.shape[1]}")
     
     return X_train_reduced, X_val_reduced, removed_features
