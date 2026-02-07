@@ -1,0 +1,89 @@
+{
+  "phase": 6,
+  "model": "ensemble_stacking",
+  "validation_accuracy": 0.5259454957930104,
+  "validation_f1": 0.5286160308484995,
+  "validation_logloss": 0.9492444969916908,
+  "train_accuracy": 0.6146053944619537,
+  "train_f1": 0.6131381718355678,
+  "train_logloss": 0.8841128068302913,
+  "confusion_matrix": [
+    [
+      4761,
+      3777,
+      1275
+    ],
+    [
+      2496,
+      6199,
+      3480
+    ],
+    [
+      997,
+      4483,
+      7355
+    ]
+  ],
+  "feature_importance": [
+    [
+      "black_prev_performance",
+      0.11891165843712016
+    ],
+    [
+      "white_prev_performance",
+      0.1184842196047364
+    ],
+    [
+      "black_perf_diff",
+      0.08801254644603669
+    ],
+    [
+      "white_perf_diff",
+      0.08781508384477726
+    ],
+    [
+      "white_form_last10",
+      0.07302819193383066
+    ],
+    [
+      "black_encoded",
+      0.07035161087213859
+    ],
+    [
+      "white_encoded",
+      0.07028931131398773
+    ],
+    [
+      "black_form_last10",
+      0.06790683767656523
+    ],
+    [
+      "round_index",
+      0.04471951228006187
+    ],
+    [
+      "white_form_last5",
+      0.04383131442931533
+    ]
+  ],
+  "base_models": {
+    "RandomForest": 0.5219251644028372,
+    "XGBoost": 0.5193119489992246,
+    "CatBoost": 0.5188811992074204,
+    "LightGBM": 0.5145162679838038
+  },
+  "ensemble_improvement_pp": 0.4020331390173215,
+  "comparison": {
+    "phase_4_lightgbm": 0.5211,
+    "phase_5_random_forest": 0.5234,
+    "phase_6_ensemble": 0.5253,
+    "phase_7_clean_temporal": 0.5259454957930104,
+    "improvement_vs_phase6_pp": 0.0645495793010431
+  },
+  "phase_7_stats": {
+    "initial_games": 174118,
+    "games_removed": 4,
+    "final_games": 174114,
+    "temporal_features_added": 21
+  }
+}
