@@ -21,7 +21,6 @@ models/*.pth
 
 # Large directories
 catboost_info/
-outputs/
 outputs_baseline/
 outputs_trained/
 outputs_final/
