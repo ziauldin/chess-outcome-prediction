@@ -59,6 +59,7 @@ A full run takes about 5 to 10 minutes on a laptop. It overwrites `outputs/` and
 │   ├── features.py           # Data loading, Elo, performance, head-to-head and form features
 │   ├── temporal_features.py  # Momentum, streaks, rest days, tournament pressure
 │   ├── data_cleaning.py      # Quality checks, cleaning, correlation filtering
+│   ├── hyperparameter_tuning.py  # Optuna search for LightGBM
 │   ├── train.py              # Standalone LightGBM training with Optuna tuning
 │   ├── predict.py            # Loads a saved model and predicts test games
 │   └── update_test_jsons.py  # Writes predictions back into the test files
